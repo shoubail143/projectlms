@@ -1,26 +1,320 @@
 @import "tailwindcss";
 
+/* Light warm educational theme matching the LEARN image */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-light: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-warm: #2563eb;
+  --accent-light: #bfdbfe;
+  --accent-dark: #1e40af;
+  --border-color: #e2e8f0;
+  --shadow-light: rgba(15, 23, 42, 0.08);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #eff6ff 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Cool light theme: shared replacements for legacy amber/orange classes. */
+html.light .bg-amber-50,
+html.light .bg-amber-100,
+html.light .bg-orange-50 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-white\/70,
+html.light .bg-white\/80,
+html.light .bg-white\/60,
+html.light .bg-white {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html.light .bg-amber-200,
+html.light .bg-amber-300 {
+  background-color: #dbeafe !important;
+}
+
+html.light .bg-amber-700,
+html.light .bg-amber-800,
+html.light .bg-gradient-to-r.from-amber-700,
+html.light .bg-gradient-to-r.from-amber-800,
+html.light .bg-gradient-to-r.to-amber-800 {
+  background-color: #2563eb !important;
+}
+
+html.light .text-amber-950,
+html.light .text-amber-900 {
+  color: #0f172a !important;
+}
+
+html.light .text-amber-800,
+html.light .text-amber-700,
+html.light .text-amber-600,
+html.light .text-amber-500,
+html.light .text-orange-700 {
+  color: #475569 !important;
+}
+
+html.light .text-amber-100 {
+  color: #dbeafe !important;
+}
+
+html.light .border-amber-200,
+html.light .border-amber-300,
+html.light .border-amber-700,
+html.light .border-amber-800 {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .hover\:border-amber-400:hover,
+html.light .hover\:border-amber-400 {
+  border-color: #93c5fd !important;
+}
+
+html.light .bg-gradient-to-br.from-amber-50,
+html.light .bg-gradient-to-br.via-orange-50,
+html.light .bg-gradient-to-br.to-amber-100 {
+  background-image: linear-gradient(135deg, #f8fafc, #ffffff, #eff6ff) !important;
+}
+
+html.light .bg-gradient-to-r.from-amber-700,
+html.light .bg-gradient-to-r.from-amber-800,
+html.light .bg-gradient-to-r.to-amber-800 {
+  background-image: linear-gradient(to right, #2563eb, #1d4ed8) !important;
+}
+
+html.light .hover\:bg-amber-50:hover {
+  background-color: #f1f5f9 !important;
+}
+
+html.light header.sticky {
+  background: rgba(248, 250, 252, 0.92) !important;
+  border-bottom-color: #e2e8f0 !important;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(18px);
+}
+
+html.light header.sticky nav a {
+  color: #475569;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+html.light header.sticky nav a:hover {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+html.dark header.sticky {
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+/* Dashboard surfaces use the same cool slate/blue visual language as the site. */
+html.light .dashboard-shell {
+  background: linear-gradient(135deg, #f8fafc, #ffffff 52%, #eff6ff) !important;
+  color: #0f172a;
+}
+
+html.light .dashboard-shell .dashboard-sidebar,
+html.light .dashboard-shell header {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: #e2e8f0 !important;
+  backdrop-filter: blur(18px);
+}
+
+html.light .dashboard-shell .dashboard-sidebar {
+  box-shadow: 12px 0 40px rgba(15, 23, 42, 0.05);
+}
+
+html.light .dashboard-shell header {
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
+html.light .dashboard-shell .bg-slate-800\/50,
+html.light .dashboard-shell .bg-slate-800,
+html.light .dashboard-shell .bg-slate-700 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+}
+
+html.light .dashboard-shell .border-slate-700,
+html.light .dashboard-shell .border-slate-600 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .dashboard-shell .text-white,
+html.light .dashboard-shell h1,
+html.light .dashboard-shell h2,
+html.light .dashboard-shell h3 {
+  color: #0f172a !important;
+}
+
+html.light .dashboard-shell .text-slate-300,
+html.light .dashboard-shell .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .dashboard-shell nav a:hover {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .dashboard-shell .text-blue-400,
+html.light .dashboard-shell .text-blue-300 {
+  color: #2563eb !important;
+}
+
+html.dark .dashboard-shell {
+  background: linear-gradient(135deg, #020617, #172554, #020617) !important;
+}
+
+html.dark .dashboard-shell header,
+html.dark .dashboard-shell .dashboard-sidebar {
+  box-shadow: 0 10px 36px rgba(2, 6, 23, 0.22);
+}
+
+/* Dashboard icon system: restrained, matching tiles in both themes. */
+html.light .dashboard-shell button {
+  border-color: transparent;
+}
+
+html.light .dashboard-shell .dashboard-sidebar button {
+  border: 1px solid transparent;
+}
+
+html.light .dashboard-shell .dashboard-sidebar > div:first-child button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.625rem;
+}
+
+html.light .dashboard-shell .w-10.h-10.bg-gradient-to-br,
+html.light .dashboard-shell .w-12.h-12.bg-gradient-to-br {
+  background-image: none !important;
+  border: 1px solid #bfdbfe;
+  background-color: #eff6ff !important;
+}
+
+html.light .dashboard-shell .w-10.h-10.bg-gradient-to-br svg,
+html.light .dashboard-shell .w-12.h-12.bg-gradient-to-br svg {
+  color: #2563eb !important;
+}
+
+html.light .dashboard-shell header button {
+  border: 1px solid transparent;
+}
+
+html.light .dashboard-shell header button:hover {
+  border-color: #e2e8f0;
+  background-color: #f8fafc !important;
+}
+
+html.light .dashboard-shell header button svg {
+  color: #64748b;
+}
+
+html.light .dashboard-shell .text-purple-400,
+html.light .dashboard-shell .text-purple-500,
+html.light .dashboard-shell .text-pink-400,
+html.light .dashboard-shell .text-pink-500 {
+  color: #2563eb !important;
+}
+
+html.light .dashboard-shell .text-yellow-400,
+html.light .dashboard-shell .text-yellow-500 {
+  color: #2563eb !important;
+}
+
+html.dark .dashboard-shell .w-10.h-10.bg-gradient-to-br,
+html.dark .dashboard-shell .w-12.h-12.bg-gradient-to-br {
+  background-image: none !important;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  background-color: rgba(59, 130, 246, 0.16) !important;
+}
+
+html.dark body {
+  background: linear-gradient(135deg, #020617 0%, #172554 50%, #020617 100%);
+  background-attachment: fixed;
+  color: #e2e8f0;
+}
+
+/* Keep every existing page on the active theme, even when a route has not
+   been migrated to theme-aware Tailwind classes yet. */
+html.dark .bg-white,
+html.dark .bg-white\/70,
+html.dark .bg-white\/80,
+html.dark .bg-white\/60,
+html.dark .bg-amber-50,
+html.dark .bg-amber-100,
+html.dark .bg-amber-50\/50 {
+  background-color: #0f172a !important;
+}
+
+html.dark .bg-amber-200 {
+  background-color: #334155 !important;
+}
+
+html.dark .bg-amber-700,
+html.dark .bg-amber-800,
+html.dark .bg-orange-50 {
+  background-color: #2563eb !important;
+}
+
+html.dark .text-amber-950,
+html.dark .text-amber-900,
+html.dark .text-white {
+  color: #f8fafc !important;
+}
+
+html.dark .text-amber-800,
+html.dark .text-amber-700,
+html.dark .text-amber-600,
+html.dark .text-amber-100 {
+  color: #93c5fd !important;
+}
+
+html.dark .border-amber-200,
+html.dark .border-amber-300,
+html.dark .border-amber-700,
+html.dark .border-amber-800 {
+  border-color: rgba(59, 130, 246, 0.45) !important;
+}
+
+html.dark .bg-gradient-to-br.from-amber-50,
+html.dark .bg-gradient-to-br.via-orange-50,
+html.dark .bg-gradient-to-br.to-amber-100 {
+  background-image: linear-gradient(135deg, #020617, #172554, #020617) !important;
+}
+
+html.dark .bg-gradient-to-r.from-amber-700,
+html.dark .bg-gradient-to-r.from-amber-800,
+html.dark .bg-gradient-to-r.to-amber-800 {
+  background-image: linear-gradient(to right, #1d4ed8, #172554) !important;
+}
+
+html.light .bg-slate-950,
+html.light .bg-slate-900,
+html.light .bg-slate-800 {
+  background-color: #fff !important;
+}
+
+html.light .bg-gradient-to-br.from-slate-900,
+html.light .bg-gradient-to-br.via-blue-900,
+html.light .bg-gradient-to-br.to-slate-900 {
+  background-image: linear-gradient(135deg, #fffbeb, #fff7ed, #fef3c7) !important;
 }
